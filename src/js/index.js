@@ -104,6 +104,7 @@ const getFaviorateImages = () => {
   });
   gallery.innerHTML = faviorateImages.join('');
   headerMenu.classList.remove('mobile-menu');
+  openImagePopup(); // Call this function after rendering images
 };
 
 // Function to add image data to local storage
@@ -139,7 +140,7 @@ const showImageDetails = (imageData) => {
   console.log(imageData);
   modalImage.src = imageData.urls.full; // or any other size you prefer
   imageDetails.innerHTML = `
-    <h2>${imageData.description || 'No description available'}</h2>
+    <div>${imageData.description || 'No description available'}</div>
     <p><strong>Photographer:</strong> ${imageData.user.name}</p>
     <p><i class="fa-solid fa-thumbs-up"></i> ${imageData.likes}</p>
   `;
