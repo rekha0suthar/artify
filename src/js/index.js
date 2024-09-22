@@ -10,6 +10,9 @@ const faviorateArt = document.querySelector('.faviorate-art');
 // Select all menu items
 const menuItems = document.querySelectorAll('.header-menu p');
 
+// select menu header and toggler
+const toggleMenu = document.querySelector('.toggle-menu');
+const headerMenu = document.querySelector('.header-menu');
 // select model items
 const modal = document.getElementById('imageModal');
 const modalImage = document.getElementById('modalImage');
@@ -44,6 +47,7 @@ const getImages = (typeOfArt) => {
           `;
         });
         gallery.innerHTML = getUrls.join('');
+        headerMenu.classList.remove('mobile-menu');
 
         // After rendering the gallery, attach the like functionality
         likedImages();
@@ -99,6 +103,7 @@ const getFaviorateImages = () => {
     `;
   });
   gallery.innerHTML = faviorateImages.join('');
+  headerMenu.classList.remove('mobile-menu');
 };
 
 // Function to add image data to local storage
@@ -164,6 +169,10 @@ const openImagePopup = () => {
   });
 };
 
+const openMenu = () => {
+  headerMenu.classList.toggle('mobile-menu');
+};
+
 // Method to fetch images whenever the page loads
 getImages('Modern Art');
 
@@ -173,3 +182,4 @@ classicArt.addEventListener('click', () => getImages('Classic Art'));
 sculptureArt.addEventListener('click', () => getImages('Sculpture Art'));
 techArt.addEventListener('click', () => getImages('Tech Art'));
 faviorateArt.addEventListener('click', () => getFaviorateImages());
+toggleMenu.addEventListener('click', () => openMenu());
