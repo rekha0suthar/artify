@@ -219,7 +219,7 @@ body {
   .modal-content div {
     overflow-y: auto; /* Use 'auto' to show scrollbar only when needed */
     max-height: 23% !important; /* This will restrict height and allow scrolling */
-    padding: 10px;
+    padding-top: 10px !important;
     padding: 0px;
     word-wrap: break-word; /* Ensure long words don't overflow */
   }
